@@ -28,7 +28,7 @@ exports.sendMessage = functions.region('asia-northeast2').firestore
           body: 'going on the air.'
         });
         console.log(message);
-        expo.sendPushNotificationsAsync(message);
+        await expo.sendPushNotificationsAsync(message);
       } else { null; }
     }
   });
