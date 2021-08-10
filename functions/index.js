@@ -13,7 +13,6 @@ exports.sendMessage = functions.region('asia-northeast2').firestore
     const createdUser = newValue.createdUser
     const name = createdUser.fullName
     const follower = createdUser.follower
-    console.log(newValue)
 
     for (const elem of follower) {
       const message = []
@@ -28,6 +27,8 @@ exports.sendMessage = functions.region('asia-northeast2').firestore
             title: name,
             body: 'going on the air.'
           })
+          console.log(message)
+          expo.sendPushNotificationsAsync(message)
         } else { null }
       })
     }
